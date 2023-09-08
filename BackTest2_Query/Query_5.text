@@ -1,0 +1,6 @@
+SELECT e.name, SUM(sd.sales) AS total_sales
+FROM employees e
+JOIN sales_data sd ON e.employee_id = sd.employee_id
+GROUP BY e.name
+ORDER BY total_sales DESC
+LIMIT 5;

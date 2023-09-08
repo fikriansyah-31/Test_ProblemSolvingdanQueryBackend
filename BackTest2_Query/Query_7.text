@@ -1,0 +1,7 @@
+SELECT name, total_sales, RANK() OVER (ORDER BY total_sales DESC) AS ranking
+FROM (
+    SELECT e.name, SUM(sd.sales) AS total_sales
+    FROM employees e
+    LEFT JOIN sales_data sd ON e.employee_id = sd.employee_id
+    GROUP BY e.name
+) AS employee_sales;

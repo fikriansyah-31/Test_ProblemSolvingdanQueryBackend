@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS manager_count
+FROM employees
+WHERE job_title = 'Manager';

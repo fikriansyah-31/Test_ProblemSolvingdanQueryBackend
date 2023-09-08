@@ -1,0 +1,3 @@
+SELECT AVG(salary) AS average_salary
+FROM employees
+WHERE YEAR(join_date) >= YEAR(CURRENT_DATE) - 5;

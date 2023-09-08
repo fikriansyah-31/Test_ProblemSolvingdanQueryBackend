@@ -1,0 +1,13 @@
+DELIMITER //
+
+CREATE PROCEDURE GetDepartmentEmployees(IN departmentName VARCHAR(255))
+BEGIN
+    SELECT e.name, e.salary
+    FROM employees e
+    WHERE e.department = departmentName;
+END //
+
+DELIMITER ;
+
+//call 
+CALL GetDepartmentEmployees('sales');

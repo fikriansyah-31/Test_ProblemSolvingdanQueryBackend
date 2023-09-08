@@ -1,0 +1,9 @@
+SELECT e.name, e.salary, avg_dep.avg_salary
+FROM employees e
+JOIN (
+    SELECT department, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department
+    HAVING AVG(salary) > (SELECT AVG(salary) FROM employees)
+) AS avg_dep
+ON e.department = avg_dep.department;
